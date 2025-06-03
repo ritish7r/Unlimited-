@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unlimited Images - HD Stock Photos Free</title>
+    <style>
+        :root {
+            --primary: #6a11cb;
+            --secondary: #2575fc;
+            --dark: #0f172a;
+            --light: #f8fafc;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, var(--dark), #1e293b);
+            color: var(--light);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        header {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .search-box {
+            display: flex;
+            max-width: 500px;
+            width: 100%;
+        }
+        
+        .search-box input {
+            padding: 0.8rem 1.2rem;
+            border: none;
+            border-radius: 50px 0 0 50px;
+            width: 100%;
+            font-size: 1rem;
+            background: rgba(241, 245, 249, 0.1);
+            color: white;
+            outline: none;
+        }
+        
+        .search-btn {
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 0 50px 50px 0;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .search-btn:hover {
+            transform: scale(1.05);
+        }
+        
+        .hero {
+            text-align: center;
+            padding: 4rem 1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #fbc2eb, #a6c1ee);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        .cta-btns {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+        
+        .btn {
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 1rem;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: #cbd5e1;
+            border: 2px solid #475569;
+        }
+        
+        .gallery {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+        
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .image-card {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            background: #1e293b;
+        }
+        
+        .image-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .image-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .image-card:hover img {
+            transform: scale(1.1);
+        }
+        
+        .image-info {
+            padding: 1.2rem;
+        }
+        
+        .image-info h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .download-btn {
+            display: inline-block;
+            margin-top: 0.8rem;
+            padding: 0.5rem 1rem;
+            background: rgba(99, 102, 241, 0.1);
+            color: #818cf8;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        
+        .download-btn:hover {
+            background: rgba(99, 102, 241, 0.2);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 3rem 1rem;
+            margin-top: 4rem;
+            background: rgba(15, 23, 42, 0.8);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .cta-btns {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo">Unlimited Images</div>
+            <div class="search-box">
+                <input type="text" placeholder="Search for nature, technology, abstract...">
+                <button class="search-btn">Search</button>
+            </div>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <h1>Discover Unlimited Free Images</h1>
+        <p>Download high-quality stock photos for personal and commercial use. No attribution required. Thousands of new images added daily.</p>
+        <div class="cta-btns">
+            <button class="btn btn-primary">Explore Gallery</button>
+            <button class="btn btn-secondary">How to Download</button>
+        </div>
+    </section>
+    
+    <section class="gallery">
+        <h2 class="section-title">Popular Images</h2>
+        <div class="image-grid" id="imageGrid">
+            <!-- Images will be loaded here by JavaScript -->
+        </div>
+    </section>
+    
+    <footer>
+        <p>© 2023 Unlimited Images. All images are free to use under the Creative Commons Zero (CC0) license.</p>
+        <p>Created with ❤️ for everyone</p>
+    </footer>
+
+    <script>
+        // Free image API from Unsplash
+        const ACCESS_KEY = 'YOUR_UNSPLASH_ACCESS_KEY'; // Replace with your key
+        const apiUrl = `https://api.unsplash.com/photos/random?client_id=${ACCESS_KEY}&count=12&query=wallpaper`;
+        
+        const imageGrid = document.getElementById('imageGrid');
+        
+        // Fetch images from Unsplash API
+        async function getImages() {
+            try {
+                const response = await fetch(apiUrl);
+                const data = await response.json();
+                
+                data.forEach(photo => {
+                    const card = document.createElement('div');
+                    card.className = 'image-card';
+                    
+                    card.innerHTML = `
+                        <img src="${photo.urls.regular}" alt="${photo.alt_description || 'Beautiful image'}">
+                        <div class="image-info">
+                            <h3>${photo.user.name}</h3>
+                            <p>${photo.description || 'High quality image'}</p>
+                            <a href="${photo.links.download}" target="_blank" class="download-btn">Download Free</a>
+                        </div>
+                    `;
+                    
+                    imageGrid.appendChild(card);
+                });
+            } catch (error) {
+                console.error('Error fetching images:', error);
+                imageGrid.innerHTML = '<p>Images failed to load. Please try again later.</p>';
+            }
+        }
+        
+        // Get images on page load
+        document.addEventListener('DOMContentLoaded', getImages);
+        
+        // Search functionality
+        const searchBtn = document.querySelector('.search-btn');
+        searchBtn.addEventListener('click', () => {
+            const searchTerm = document.querySelector('input').value;
+            if(searchTerm) {
+                imageGrid.innerHTML = '';
+                const newUrl = `https://api.unsplash.com/search/photos?client_id=${ACCESS_KEY}&query=${searchTerm}&per_page=12`;
+                fetchImages(newUrl);
+            }
+        });
+        
+        // Function to fetch images from custom URL
+        async function fetchImages(url) {
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+                const photos = data.results || data;
+                
+                photos.forEach(photo => {
+                    const card = document.createElement('div');
+                    card.className = 'image-card';
+                    
+                    card.innerHTML = `
+                        <img src="${photo.urls.regular}" alt="${photo.alt_description || 'Beautiful image'}">
+                        <div class="image-info">
+                            <h3>${photo.user.name}</h3>
+                            <p>${photo.description || 'High quality image'}</p>
+                            <a href="${photo.links.download}" target="_blank" class="download-btn">Download Free</a>
+                        </div>
+                    `;
+                    
+                    imageGrid.appendChild(card);
+                });
+            } catch (error) {
+                console.error('Error fetching images:', error);
+                imageGrid.innerHTML = '<p>Images failed to load. Please try again later.</p>';
+            }
+        }
+    </script>
+</body>
+</html>
